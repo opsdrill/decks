@@ -36,6 +36,6 @@ jobs:
     steps:
       - name: Trigger deck import
         run: |
-          curl -f -X POST https://opsdrill.dev/api/v1/content/import-decks/ \
+          curl -f -X POST https://api.opsdrill.dev/api/v1/content/import-decks/ \
             -H "Authorization: Bearer ${{ secrets.DECK_IMPORT_TOKEN }}" \
             -H "Content-Type: application/json"
