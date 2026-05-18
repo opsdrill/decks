@@ -1,0 +1,29 @@
+# Copy this file to topics/<topic-slug>/<deck-slug>.yml and edit.
+# This template lives under topics/_template/ and is skipped by validators.
+#
+# Required fields: schema, title, level, cards.
+
+schema: deck/v1
+title: Example Deck Title
+level: foundation               # one of: foundation | practitioner | expert
+description: |
+  Two or three sentences describing what this deck teaches and who it is
+  for. Markdown is fine. Be concrete: name the commands, concepts, or
+  failure modes the deck covers.
+
+cards:
+  - front: "What does this command do?"
+    back: |
+      Short, concrete explanation. Use a fenced code block for command
+      output if it adds clarity:
+
+      ```
+      $ example --flag
+      expected output
+      ```
+    tags: [example]
+
+  - front: "Difference between X and Y?"
+    back: "One-sentence contrast that captures the essential difference."
+    hint: "Think about when each is used."
+    tags: [example, comparison]

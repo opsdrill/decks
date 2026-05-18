@@ -1,0 +1,62 @@
+schema: deck/v1
+title: Terraform Commands
+level: foundation
+description: |
+  Memorize the day-to-day Terraform CLI surface: init, plan, apply, state,
+  workspace, fmt, and import. These commands cover roughly 90% of practical
+  Terraform work.
+
+cards:
+  - front: "What does `terraform init` do?"
+    back: |
+      Downloads provider plugins, initializes the configured backend
+      (local or remote state), and prepares the `.terraform/` directory.
+      Safe to re-run — it is idempotent.
+    tags: [cli, lifecycle]
+
+  - front: "Difference between `terraform plan` and `terraform apply`?"
+    back: |
+      `plan` computes a diff between desired state (HCL) and current state,
+      optionally writes a plan file (`-out=plan.tfplan`), and changes
+      nothing. `apply` executes a plan: either re-computing one on the fly
+      or applying a saved plan file.
+    tags: [cli, lifecycle]
+
+  - front: "What does `terraform apply -auto-approve` do, and when is it dangerous?"
+    back: |
+      Skips the interactive confirmation prompt and applies immediately.
+      Useful in CI where the plan was already reviewed; dangerous on a
+      shared workstation because there is no second chance to catch a bad
+      diff.
+    tags: [cli, safety]
+
+  - front: "What is `terraform state` for?"
+    back: |
+      Inspects and manipulates the state file directly. Common subcommands:
+      `state list` (show resources), `state show <addr>` (inspect one),
+      `state mv` (rename without destroying), `state rm` (forget without
+      destroying).
+    tags: [state, cli]
+
+  - front: "What is a Terraform workspace?"
+    back: |
+      A named, isolated state file within the same backend. Useful for
+      keeping `dev`/`staging`/`prod` separate without copying configs.
+      Manage with `terraform workspace {new,select,list,delete}`. Not a
+      substitute for separate root modules in serious multi-env setups.
+    tags: [workspace, state]
+
+  - front: "What does `terraform fmt` do?"
+    back: |
+      Rewrites `.tf` files in canonical style (indentation, alignment,
+      trailing commas). Run before committing; CI typically enforces it
+      via `terraform fmt -check`.
+    tags: [cli, style]
+
+  - front: "What does `terraform import` do, and what is its main limitation?"
+    back: |
+      Associates an existing real-world resource with a Terraform resource
+      address in state, so future `apply`s manage it. Limitation: it does
+      NOT generate HCL — you must write the matching resource block by
+      hand, then re-plan to verify drift is zero.
+    tags: [cli, state, import]

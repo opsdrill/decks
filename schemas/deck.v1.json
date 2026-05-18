@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opsdrill.dev/schemas/deck.v1.json",
+  "title": "Deck v1",
+  "description": "Single-file deck format. Used for most decks.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "title",
+    "level",
+    "cards"
+  ],
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "deck/v1"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "level": {
+      "type": "string",
+      "enum": [
+        "foundation",
+        "practitioner",
+        "expert"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "cards": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/card"
+      }
+    }
+  },
+  "$defs": {
+    "card": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "front",
+        "back"
+      ],
+      "properties": {
+        "front": {
+          "type": "string",
+          "minLength": 1
+        },
+        "back": {
+          "type": "string",
+          "minLength": 1
+        },
+        "hint": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "default": []
+        }
+      }
+    }
+  }
+}

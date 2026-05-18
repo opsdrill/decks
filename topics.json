@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-05-18T00:00:00Z",
+  "generator": "manual-bootstrap",
+  "note": "Placeholder manifest for Phase 2 bootstrap. The opsdrill app overwrites this file via the topic manifest publisher (anki-decks-feature.md Phase 3). Do not hand-edit once Phase 3 ships.",
+  "topics": [
+    {
+      "slug": "terraform",
+      "title": "Terraform",
+      "aliases": []
+    },
+    {
+      "slug": "linux-file-permissions",
+      "title": "Linux File Permissions",
+      "aliases": []
+    }
+  ]
+}

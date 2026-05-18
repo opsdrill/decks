@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: opsdrill site
+    url: https://opsdrill.dev
+    about: For product feedback unrelated to deck content, please use the main site.
