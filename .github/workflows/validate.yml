@@ -28,14 +28,3 @@ jobs:
 
       - name: Validate YAML against schemas
         run: python scripts/validate_yaml.py
-
-  deploy:
-    needs: validate
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Trigger deck import
-        run: |
-          curl -f -X POST https://api.opsdrill.dev/api/v1/content/import-decks/ \
-            -H "Authorization: Bearer ${{ secrets.DECK_IMPORT_TOKEN }}" \
-            -H "Content-Type: application/json"
