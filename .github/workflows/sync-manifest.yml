@@ -15,10 +15,12 @@ jobs:
 
       - name: Fetch manifest
         run: |
-          curl -sf \
+          curl -sf --compressed \
             -H "X-API-Key: ${{ secrets.MANIFEST_API_KEY }}" \
             https://api.opsdrill.dev/api/v1/content/manifests/topics/ \
-            | jq '.data' > topics.json
+            -o response.json
+          jq '.data' response.json > topics.json
+          rm response.json
 
       - name: Commit manifest
         run: |
