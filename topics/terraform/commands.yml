@@ -9,17 +9,10 @@ description: |
 cards:
   - front: "new question about terraform (edite)"
     back: |
-      surprised pickachu face
-    tags: [cli, lifecycle]
-  - front: "Difference between `terraform plan` and `terraform apply`?"
-    back: |
-      `plan` computes a diff between desired state (HCL) and current state,
-      optionally writes a plan file (`-out=plan.tfplan`), and changes
-      nothing. `apply` executes a plan: either re-computing one on the fly
-      or applying a saved plan file.
+      surprised pickachu face - wow
     tags: [cli, lifecycle]
 
-  - front: "What does `terraform apply -auto-approve` do, and when is it dangerous?"
+  - front: "What does `terraform apply -auto-approve` do, and when is it dangerous? take a guess"
     back: |
       Skips the interactive confirmation prompt and applies immediately.
       Useful in CI where the plan was already reviewed; dangerous on a
@@ -33,7 +26,7 @@ cards:
       `state list` (show resources), `state show <addr>` (inspect one),
       `state mv` (rename without destroying), `state rm` (forget without
       destroying).
-    tags: [state, cli]
+    tags: [state]
 
   - front: "What is a Terraform workspace?"
     back: |
