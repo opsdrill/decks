@@ -7,6 +7,10 @@ description: |
   Terraform work.
 
 cards:
+  - front: "new question about terraform"
+    back: |
+      surprised pickachu face
+    tags: [cli, lifecycle]
   - front: "Difference between `terraform plan` and `terraform apply`?"
     back: |
       `plan` computes a diff between desired state (HCL) and current state,
