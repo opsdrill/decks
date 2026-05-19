@@ -7,7 +7,7 @@ description: |
   Terraform work.
 
 cards:
-  - front: "new question about terraform"
+  - front: "new question about terraform (edite)"
     back: |
       surprised pickachu face
     tags: [cli, lifecycle]
