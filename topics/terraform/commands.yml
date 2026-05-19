@@ -7,13 +7,6 @@ description: |
   Terraform work.
 
 cards:
-  - front: "What does `terraform init` do?"
-    back: |
-      Downloads provider plugins, initializes the configured backend
-      (local or remote state), and prepares the `.terraform/` directory.
-      Safe to re-run — it is idempotent.
-    tags: [cli, lifecycle]
-
   - front: "Difference between `terraform plan` and `terraform apply`?"
     back: |
       `plan` computes a diff between desired state (HCL) and current state,
