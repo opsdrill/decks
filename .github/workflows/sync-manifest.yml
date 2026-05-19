@@ -20,14 +20,10 @@ jobs:
             https://api.opsdrill.dev/api/v1/content/manifests/topics/ \
             | jq '.data' > topics.json
 
-      - name: Commit if changed
+      - name: Commit manifest
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet topics.json; then
-            echo "No changes to topics.json"
-          else
-            git add topics.json
-            git commit -m "chore: sync topics manifest"
-            git push
-          fi
+          git add topics.json
+          git commit -m "chore: sync topics manifest"
+          git push
