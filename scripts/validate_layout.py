@@ -39,8 +39,11 @@ def load_known_topic_slugs() -> set[str]:
         manifest = json.load(fh)
     slugs: set[str] = set()
     for topic in manifest.get("topics", []):
-        slugs.add(topic["slug"])
-        slugs.update(topic.get("aliases", []))
+        if isinstance(topic, str):
+            slugs.add(topic)
+        else:
+            slugs.add(topic["slug"])
+            slugs.update(topic.get("aliases", []))
     return slugs
 
 
